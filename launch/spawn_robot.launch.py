@@ -16,10 +16,13 @@ def generate_launch_description():
     with open(robot_urdf, 'r') as file:
         robot_description = file.read()
 
+    rviz_config = os.path.join(pkg_share, 'config', 'robot_config.rviz')
+
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([FindPackageShare('gazebo_ros'), 'launch', 'gazebo.launch.py'])
-        ])
+        ]),
+        launch_arguments={'gui': 'false'}.items()
     )
 
     robot_state_publisher = Node(
@@ -43,9 +46,18 @@ def generate_launch_description():
         output='screen'
     )
 
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config],
+        output='screen'
+    )
+
     return LaunchDescription([
         gazebo_launch,
         robot_state_publisher,
         gazebo_spawn_node,
         joint_state_publisher,
+        rviz_node,
     ])

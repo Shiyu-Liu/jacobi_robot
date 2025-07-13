@@ -14,6 +14,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         # Install all launch files
         ('share/' + package_name + '/launch', glob('launch/*.launch.py')),
+        # Install config files
+        ('share/' + package_name + '/config', glob('config/*')),
         # Install all files in urdf/ and subfolders
         *[
             (os.path.join('share', package_name, os.path.dirname(path)), [path])
