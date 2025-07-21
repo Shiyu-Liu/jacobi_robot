@@ -32,6 +32,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'ik_solver_node = jacobi_robot.ik_solver_node:main',
+            'ee_pose_gui_node = jacobi_robot.ee_pose_gui_node:main',
+            'tf_listener_node = jacobi_robot.tf_listener_node:main'
         ],
     },
 )
