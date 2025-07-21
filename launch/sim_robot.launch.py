@@ -1,7 +1,8 @@
 import os
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.substitutions import PathJoinSubstitution
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
+from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -9,6 +10,13 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
+    use_ik_solver = DeclareLaunchArgument(
+        'use_ik_solver',
+        default_value='true',
+        description='whether to start the ik server node, otherwise use joint_state_publisher_gui'
+    )
+
+    use_ik_solver_arg = LaunchConfiguration('use_ik_solver')
 
     pkg_share = get_package_share_directory('jacobi_robot')
 
@@ -43,7 +51,24 @@ def generate_launch_description():
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
         name='joint_state_publisher_gui',
-        output='screen'
+        output='screen',
+        condition=UnlessCondition(use_ik_solver_arg)
+    )
+
+    ik_solver_node = Node(
+        package='jacobi_robot',
+        executable='ik_solver_node',
+        name='ik_solver_node',
+        output='screen',
+        condition=IfCondition(use_ik_solver_arg)
+    )
+
+    ee_pose_publisher = Node(
+        package='jacobi_robot',
+        executable='ee_pose_gui_node',
+        name='ee_pose_gui_node',
+        output='screen',
+        condition=IfCondition(use_ik_solver_arg)
     )
 
     rviz_node = Node(
@@ -60,4 +85,6 @@ def generate_launch_description():
         gazebo_spawn_node,
         joint_state_publisher,
         rviz_node,
+        ik_solver_node,
+        ee_pose_publisher,
     ])
