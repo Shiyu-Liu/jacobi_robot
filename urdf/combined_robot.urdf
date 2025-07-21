@@ -16,6 +16,10 @@
         <mesh filename="package://jacobi_robot/urdf/linear_axis/meshes/visual/base_link.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="linear_axis_link_1">
     <collision name="collision">
@@ -31,6 +35,10 @@
         <mesh filename="package://jacobi_robot/urdf/linear_axis/meshes/visual/link_1.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <!-- ROS-Industrial 'flange' frame: attachment point for EEF models (attachment point to ABB arm) -->
   <link name="linear_axis_flange"/>
@@ -54,6 +62,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/base_link.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_1">
     <collision name="collision">
@@ -69,6 +81,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_1.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_2">
     <collision name="collision">
@@ -84,6 +100,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_2.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_3">
     <collision name="collision">
@@ -99,6 +119,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_3.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_4">
     <collision name="collision">
@@ -114,6 +138,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_4.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_5">
     <collision name="collision">
@@ -129,6 +157,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_5.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="abb_arm_link_6">
     <collision name="collision">
@@ -144,6 +176,10 @@
         <mesh filename="package://jacobi_robot/urdf/abb_irb6700_150_320/meshes/visual/link_6.glb"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <!-- end of link list -->
   <!-- joint list -->
